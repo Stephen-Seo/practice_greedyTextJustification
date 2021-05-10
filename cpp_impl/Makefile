@@ -7,7 +7,7 @@ endif
 
 OBJECTS = \
 		src/main.o \
-		src/argparse.o
+		src/helpers.o
 
 all: GreedyTextJustification
 
