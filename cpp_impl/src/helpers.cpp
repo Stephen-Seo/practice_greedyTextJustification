@@ -130,9 +130,12 @@ void Helpers::printGreedyTextJustification(unsigned long long width, const std::
     std::vector<std::string> currentLine;
     unsigned long long currentToken = 0;
     unsigned long long size = 0;
-    while(true) {
+    while(currentToken < tokens.size()) {
         size += tokens.at(currentToken).size();
         if(size + 1 >= width) {
+            if(currentLine.empty()) {
+                currentLine.push_back(tokens.at(currentToken++));
+            }
             printCurrentLine(currentLine);
             size = 0;
             continue;
@@ -140,9 +143,6 @@ void Helpers::printGreedyTextJustification(unsigned long long width, const std::
             currentLine.push_back(tokens.at(currentToken));
             size += 1;
             ++currentToken;
-            if(currentToken >= tokens.size()) {
-                break;
-            }
         }
     }
     if(!currentLine.empty()) {
