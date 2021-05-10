@@ -1,4 +1,4 @@
-COMMON_FLAGS = -Wall -Wextra -Wpedantic
+COMMON_FLAGS = -Wall -Wextra -Wpedantic -std=c++17
 ifdef DEBUG
 	CXXFLAGS = $(COMMON_FLAGS) -O0 -g
 else
