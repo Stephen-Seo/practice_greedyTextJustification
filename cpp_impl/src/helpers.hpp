@@ -7,7 +7,7 @@
 
 namespace Helpers {
     typedef std::unordered_map<std::string, std::string> ParseArgsResultType;
-    std::unordered_map<std::string, std::string> parseArgs(
+    ParseArgsResultType parseArgs(
         int argc,
         char **argv,
         const std::vector<std::string> &simpleArgs,
