@@ -6,6 +6,7 @@
 #include <vector>
 
 namespace Helpers {
+    typedef std::unordered_map<std::string, std::string> ParseArgsResultType;
     std::unordered_map<std::string, std::string> parseArgs(
         int argc,
         char **argv,

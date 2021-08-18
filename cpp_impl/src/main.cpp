@@ -1,11 +1,27 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <stdexcept>
 
 #include "helpers.hpp"
 
+void printHelp() {
+    std::cout << "Usage:\n";
+    std::cout << "-w <width> - specify the width in integers\n";
+    std::cout << "--string <string> - input string to print within the "
+        "specified width";
+    std::cout << std::endl;
+}
+
 int main(int argc, char **argv) {
-    auto parsed = Helpers::parseArgs(argc, argv, {}, {"w", "string"});
+    Helpers::ParseArgsResultType parsed;
+    try {
+        parsed = Helpers::parseArgs(argc, argv, {}, {"w", "string"});
+    } catch(const std::invalid_argument &e) {
+        std::cout << "ERROR: invalid argument\n";
+        printHelp();
+        return 1;
+    }
 
 //    for(auto pair : parsed) {
 //        std::cout << pair.first << ", " << pair.second << std::endl;
